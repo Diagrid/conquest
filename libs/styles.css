@@ -1,0 +1,96 @@
+/* colours 
+        (blue sapphire #2E5266)
+        (light slate grey #6e8898)
+        (cadet grey #9FB1BC)
+        (timberwolf #D3D0CB)
+        (maize crayola #E2C044) 
+*/
+
+
+
+
+
+#map { 
+  height: 180px; 
+}
+
+.map {
+  background-color: #D3D0CB;
+}
+
+#screen {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.black {
+    background-color: black;
+}
+
+img, svg {
+    width: 100%;
+    height: 100%;
+    cursor: pointer !important;
+    fill: #6E8898;
+}
+
+
+
+/* fixed button with margins */
+.fixed-top-custom {
+
+  position: fixed;
+  top: 2%;
+  /* right: 0; */
+  left: 1%;
+  z-index: 1030;  
+}
+
+.fixed-topRight-custom {
+  position: fixed;
+  top: 2%;
+  /* right: 0; */
+  right: 1%;
+  z-index: 1030;  
+}
+
+.btn-primary {
+  --bs-btn-color: #2E5266 !important;
+  --bs-btn-bg: #E2C044 !important;
+  --bs-btn-border-color: #E2C044 !important;
+}
+
+
+/* panzoom */
+
+body {
+    margin: 0;
+  }
+  
+  .content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 15px;
+  }
+  
+  .navigation {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .map {
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    position: fixed;
+  }
+
+
+
+  .modal-backdrop.show {
+    opacity: var(--bs-backdrop-opacity);
+    z-index: -111;
+    position: fixed;
+  }

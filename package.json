@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@panzoom/panzoom": "^4.5.1",
+    "bootstrap": "^5.2.3",
+    "jquery": "^3.6.1",
+    "leaflet": "^1.9.3"
+  }
+}
