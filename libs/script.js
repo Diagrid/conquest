@@ -51,11 +51,27 @@ function createCivilisations() {
 
     var paths = document.getElementsByTagName("path");
     var pathsArray = []
+
+    let cultures = ['', 'Rome', 'Greece', 'Gaul', 'Scythia', 'Parthia', 'Egypt'];
+    cultures.sort(() => Math.random())
     
     for (let i=0; i < paths.length; i++){
 
-        let diceRoll = Math.floor(Math.random()* 6) +1;
-        let cultures = ['', 'Rome', 'Greece', 'Gaul', 'Scythia', 'Parthia', 'Egypt']
+        // let diceRoll = Math.floor(Math.random()* 6) +1;
+
+        if (i < 40) { 
+            var culture = cultures[1]
+        } else if (i < 80) { 
+            var culture = cultures[2]
+        } else if (i < 120) { 
+            var culture = cultures[3]
+        } else if (i < 160) { 
+            var culture = cultures[4]
+        } else if (i < 200) { 
+            var culture = cultures[5]
+        } else if (i < 240) { 
+            var culture = cultures[6]
+        }
 
             pathsArray.push($(paths[i]).attr('name'))
             
@@ -69,9 +85,9 @@ function createCivilisations() {
                     castle: 1
                     },
                 military: {
-                    knights: 1,
-                    archers: 5,
-                    horsemen: 1
+                    knights: Math.floor(Math.random()* 6) +1,
+                    archers: Math.floor(Math.random()* 6) +1,
+                    horsemen: Math.floor(Math.random()* 6) +1
                     },
                 population: 100,
                 diplomacy: {
@@ -79,7 +95,7 @@ function createCivilisations() {
                     enemies: ['Parthians'],
                     neutral: ['Gaul']
                 },
-                culture: cultures[diceRoll]
+                culture: culture
             })
         
             $(paths[i]).attr('id', i)
