@@ -393,7 +393,6 @@ $( "#svg" ).on("click", function( event ) {
                     $(paths[thisCulture]).attr('fill', 'blue')
                 } else if (civilisationArray[i].culture === 'Greece') {
                     let thisCulture = [i]
-                    console.log('bum')
                     $(paths[thisCulture]).attr('fill', 'green')
                 } else if (civilisationArray[i].culture === 'Gaul') {
                     $(paths[i]).attr('fill', 'orange')
