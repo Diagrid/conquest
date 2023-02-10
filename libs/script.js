@@ -54,6 +54,9 @@ function createCivilisations() {
     
     for (let i=0; i < paths.length; i++){
 
+        let diceRoll = Math.floor(Math.random()* 6) +1;
+        let cultures = ['', 'Rome', 'Greece', 'Gaul', 'Scythia', 'Parthia', 'Egypt']
+
             pathsArray.push($(paths[i]).attr('name'))
             
             civilisationArray.push({
@@ -75,7 +78,8 @@ function createCivilisations() {
                     allies: ['Rome', ' Greece'],
                     enemies: ['Parthians'],
                     neutral: ['Gaul']
-                }
+                },
+                culture: cultures[diceRoll]
             })
         
             $(paths[i]).attr('id', i)
@@ -383,7 +387,24 @@ $( "#svg" ).on("click", function( event ) {
         
         for (let i=0; i < paths.length; i++){
                 $(paths[i]).attr('fill', '#6E8898')
-            }
+
+                if (civilisationArray[i].culture === 'Rome') {
+                    let thisCulture = [i]
+                    $(paths[thisCulture]).attr('fill', 'blue')
+                } else if (civilisationArray[i].culture === 'Greece') {
+                    let thisCulture = [i]
+                    console.log('bum')
+                    $(paths[thisCulture]).attr('fill', 'green')
+                } else if (civilisationArray[i].culture === 'Gaul') {
+                    $(paths[i]).attr('fill', 'orange')
+                } else if (civilisationArray[i].culture === 'Scythia') {
+                    $(paths[i]).attr('fill', 'purple')
+                } else if (civilisationArray[i].culture === 'Parthia') {
+                    $(paths[i]).attr('fill', 'green')
+                } else if (civilisationArray[i].culture === 'Egypt') {
+                    $(paths[i]).attr('fill', 'black')
+                }
+        }
 
         $('#exampleModal').modal('toggle');
         $(nearest).attr('fill', '#2E5266')
@@ -433,6 +454,7 @@ $( "#svg" ).on("click", function( event ) {
         $('#countyDiplomacyBody').empty();
         $('#countyDiplomacyBody').append(
             '<h1>Diplomacy</h1>',
+            '<p>Culture: <span id="culture"></span></p>',
             '<p>Allies: <span id="allies"></span></p>',
             '<p>Enemies: <span id="enemies"></span></p>',
             '<p>Neutrual: <span id="neutral"></span></p>'
@@ -457,6 +479,7 @@ $( "#svg" ).on("click", function( event ) {
 
         //county diplomacy body text
         $('#countyDiplomacyHeader').text(civilisationArray[nearestInt].name)
+        $('#culture').text(civilisationArray[nearestInt].culture)
         $("#allies").text(civilisationArray[nearestInt].diplomacy.allies)
         $("#enemies").text(civilisationArray[nearestInt].diplomacy.enemies)
         $("#neutral").text(civilisationArray[nearestInt].diplomacy.neutral)
