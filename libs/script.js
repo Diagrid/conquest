@@ -395,6 +395,9 @@ $( "#svg" ).on("click", function( event ) {
         let nearestID = (event.target.id);
         let nearest = "#" + nearestID;
         let nearestInt = parseInt(nearestID);
+
+
+        //hear should be if county[nearestID].playable = true {do the usual} else {tell you something different; i.e no buy buttons etc.}
      
         
 
